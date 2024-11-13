@@ -27,6 +27,15 @@ public class Vetor {
         return this.numeroDeElementos;
     }
 
+    public String busca(int posicao) {
+
+        if (!(posicao >= 0 && posicao < this.numeroDeElementos)) {
+            throw new IllegalArgumentException("Posição inválida");
+        }
+
+        return this.meuArray[posicao];
+    }
+
     @Override
     public String toString() {
 
