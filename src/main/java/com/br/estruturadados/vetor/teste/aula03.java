@@ -10,6 +10,7 @@ public class aula03 {
 
         vetor.adiciona("elemento 1");
         vetor.adiciona("elemento 2");
+        vetor.adiciona("elemento 3");
 
     }
 }
