@@ -1,4 +1,6 @@
-package com.br.estruturadados;
+package com.br.teste;
+
+import com.br.estruturadados.Vetor;
 
 public class aula02 {
     public static void main(String[] args) {
