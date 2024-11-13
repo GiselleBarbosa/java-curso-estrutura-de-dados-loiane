@@ -1,6 +1,6 @@
-package com.br.teste;
+package com.br.estruturadados.vetor.teste;
 
-import com.br.estruturadados.Vetor;
+import com.br.estruturadados.vetor.Vetor;
 
 public class aula03 {
 

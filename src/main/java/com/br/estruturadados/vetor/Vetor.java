@@ -1,4 +1,4 @@
-package com.br.estruturadados;
+package com.br.estruturadados.vetor;
 
 public class Vetor {
 
@@ -18,5 +18,9 @@ public class Vetor {
             return true;
         }
         return false;
+    }
+
+    public int tamanho() {
+        return this.numeroDeElementos;
     }
 }
