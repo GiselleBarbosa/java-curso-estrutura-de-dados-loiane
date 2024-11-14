@@ -4,18 +4,18 @@ import java.util.Arrays;
 
 public class Vetor {
 
-    private String[] meuArray;
-    private int numeroDeElementos;
+    private String[] elementos;
+    private int tamanho;
 
     public Vetor(int capacidade) {
-        this.meuArray = new String[capacidade];
-        this.numeroDeElementos = 0;
+        this.elementos = new String[capacidade];
+        this.tamanho = 0;
     }
 
     public boolean adiciona(String elemento) {
-        if (this.numeroDeElementos < this.meuArray.length) {
-            this.meuArray[this.numeroDeElementos] = elemento;
-            this.numeroDeElementos++;
+        if (this.tamanho < this.elementos.length) {
+            this.elementos[this.tamanho] = elemento;
+            this.tamanho++;
 
             return true;
         }
@@ -24,16 +24,16 @@ public class Vetor {
 
     // Quantidade de elementos contidos no Vetor
     public int tamanho() {
-        return this.numeroDeElementos;
+        return this.tamanho;
     }
 
     public String busca(int posicao) {
 
-        if (!(posicao >= 0 && posicao < this.numeroDeElementos)) {
+        if (!(posicao >= 0 && posicao < this.tamanho)) {
             throw new IllegalArgumentException("Posição inválida");
         }
 
-        return this.meuArray[posicao];
+        return this.elementos[posicao];
     }
 
     @Override
@@ -42,20 +42,20 @@ public class Vetor {
        /* StringBuilder s = new StringBuilder();
         s.append("[");
 
-        for (int i = 0; i < this.numeroDeElementos - 1; i++) {
-            s.append(this.meuArray[i]);
+        for (int i = 0; i < this.tamanho - 1; i++) {
+            s.append(this.elementos[i]);
             s.append(", ");
         }
 
-        if (this.numeroDeElementos > 0) {
-            s.append(this.meuArray[this.numeroDeElementos - 1]);
+        if (this.tamanho > 0) {
+            s.append(this.elementos[this.tamanho - 1]);
         }
         s.append("]");
 
         return s.toString();*/
 
         // simplificando
-        return Arrays.toString(Arrays.copyOfRange(meuArray, 0, numeroDeElementos));
+        return Arrays.toString(Arrays.copyOfRange(elementos, 0, tamanho));
 
     }
 }
