@@ -4,21 +4,21 @@ import java.util.Arrays;
 
 public class Vetor {
 
-    private String[] elementos;
-    private int tamanho;
+    private String[] array;
+    private int espacosUtilizados;
 
-    public Vetor(int capacidade) {
-        this.elementos = new String[capacidade];
-        this.tamanho = 0;
+    public Vetor(int tamanho) {
+        this.array = new String[tamanho];
+        this.espacosUtilizados = 0;
     }
 
     public boolean adiciona(String elemento) {
 
         this.aumentaCapacidade();
 
-        if (this.tamanho < this.elementos.length) {
-            this.elementos[this.tamanho] = elemento;
-            this.tamanho++;
+        if (this.espacosUtilizados < this.array.length) {
+            this.array[this.espacosUtilizados] = elemento;
+            this.espacosUtilizados++;
 
             return true;
         }
@@ -26,56 +26,56 @@ public class Vetor {
     }
 
     public boolean adiciona(int posicao, String elemento) {
-        if (posicao < 0 || posicao > this.tamanho) {
+        if (posicao < 0 || posicao > this.espacosUtilizados) {
             throw new IllegalArgumentException("Posição inválida");
         }
 
         this.aumentaCapacidade();
 
-        if (this.tamanho == this.elementos.length) {
-            throw new IllegalStateException("Array está cheio, não é possível adicionar mais elementos.");
+        if (this.espacosUtilizados == this.array.length) {
+            throw new IllegalStateException("Array está cheio, não é possível adicionar mais array.");
         }
 
-        for (int i = this.tamanho - 1; i >= posicao; i--) {
-            this.elementos[i + 1] = this.elementos[i];
+        for (int i = this.espacosUtilizados - 1; i >= posicao; i--) {
+            this.array[i + 1] = this.array[i];
         }
 
-        this.elementos[posicao] = elemento;
-        this.tamanho++;
+        this.array[posicao] = elemento;
+        this.espacosUtilizados++;
         return true;
     }
 
     private void aumentaCapacidade() {
-        if (this.tamanho == this.elementos.length) {
-            String[] elementosNovos = new String[this.elementos.length * 2];
+        if (this.espacosUtilizados == this.array.length) {
+            String[] arrayNovos = new String[this.array.length * 2];
 
-            for (int i = 0; i < this.elementos.length; i++) {
-                elementosNovos[i] = this.elementos[i];
+            for (int i = 0; i < this.array.length; i++) {
+                arrayNovos[i] = this.array[i];
             }
 
-            this.elementos = elementosNovos;
+            this.array = arrayNovos;
         }
     }
 
-    // Quantidade de elementos contidos no Vetor
-    public int tamanho() {
-        return this.tamanho;
+    // Quantidade de array contidos no Vetor
+    public int espacosUtilizados() {
+        return this.espacosUtilizados;
     }
 
     public String busca(int posicao) {
 
-        if (!(posicao >= 0 && posicao < this.tamanho)) {
+        if (!(posicao >= 0 && posicao < this.espacosUtilizados)) {
             throw new IllegalArgumentException("Posição inválida");
         }
 
-        return this.elementos[posicao];
+        return this.array[posicao];
     }
 
     public int busca(String elemento) {
 
-        for (int i = 0; i < this.tamanho; i++) {
+        for (int i = 0; i < this.espacosUtilizados; i++) {
             // algoritmo de busca sequencial
-            if (this.elementos[i].equals(elemento)) {
+            if (this.array[i].equals(elemento)) {
                 return i;
             }
         }
@@ -85,6 +85,6 @@ public class Vetor {
     @Override
     public String toString() {
         return Arrays.toString(
-                Arrays.copyOfRange(elementos, 0, tamanho));
+                Arrays.copyOfRange(array, 0, Vetor.this.espacosUtilizados));
     }
 }
