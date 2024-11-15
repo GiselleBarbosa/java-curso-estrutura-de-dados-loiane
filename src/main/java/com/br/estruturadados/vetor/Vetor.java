@@ -22,6 +22,24 @@ public class Vetor {
         return false;
     }
 
+    public boolean adiciona(int posicao, String elemento) {
+        if (posicao < 0 || posicao > this.tamanho) {
+            throw new IllegalArgumentException("Posição inválida");
+        }
+
+        if (this.tamanho == this.elementos.length) {
+            throw new IllegalStateException("Array está cheio, não é possível adicionar mais elementos.");
+        }
+
+        for (int i = this.tamanho - 1; i >= posicao; i--) {
+            this.elementos[i + 1] = this.elementos[i];
+        }
+
+        this.elementos[posicao] = elemento;
+        this.tamanho++;
+        return true;
+    }
+
     // Quantidade de elementos contidos no Vetor
     public int tamanho() {
         return this.tamanho;
