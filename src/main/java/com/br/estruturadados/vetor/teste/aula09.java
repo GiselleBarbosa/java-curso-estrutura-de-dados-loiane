@@ -17,6 +17,7 @@ public class aula09 {
         System.out.println(vetor);
 
         vetor.remove(1);
+        System.out.println("Elemento G foi removido com sucesso");
 
         System.out.println(vetor);
 

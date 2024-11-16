@@ -42,13 +42,15 @@ public class Vetor {
     }
 
     public void remove(int posicao) {
-        if (!(posicao >= 0 && posicao < this.espacosUtilizados)) {
+        if (posicao < 0 || posicao >= this.espacosUtilizados) {
             throw new IllegalArgumentException("Posição inválida");
         }
 
-        for (int i = posicao; i < espacosUtilizados - 1; i++) {
+        for (int i = posicao; i < this.espacosUtilizados - 1; i++) {
             this.array[i] = this.array[i + 1];
         }
+
+        this.array[this.espacosUtilizados - 1] = null;
         this.espacosUtilizados--;
     }
 
