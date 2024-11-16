@@ -12,7 +12,7 @@ public class aula04 {
         vetor.adiciona("elemento 2");
         vetor.adiciona("elemento 3");
 
-        System.out.println(vetor.tamanho());
+        System.out.println(vetor.espacosUtilizados());
 
         System.out.println(vetor);
     }

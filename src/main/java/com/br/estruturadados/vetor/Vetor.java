@@ -12,20 +12,17 @@ public class Vetor {
         this.espacosUtilizados = 0;
     }
 
-    public boolean adiciona(String elemento) {
+    public void adiciona(String elemento) {
 
         this.aumentaCapacidade();
 
         if (this.espacosUtilizados < this.array.length) {
             this.array[this.espacosUtilizados] = elemento;
             this.espacosUtilizados++;
-
-            return true;
         }
-        return false;
     }
 
-    public boolean adiciona(int posicao, String elemento) {
+    public void adiciona(int posicao, String elemento) {
         if (posicao < 0 || posicao > this.espacosUtilizados) {
             throw new IllegalArgumentException("Posição inválida");
         }
@@ -42,7 +39,17 @@ public class Vetor {
 
         this.array[posicao] = elemento;
         this.espacosUtilizados++;
-        return true;
+    }
+
+    public void remove(int posicao) {
+        if (!(posicao >= 0 && posicao < this.espacosUtilizados)) {
+            throw new IllegalArgumentException("Posição inválida");
+        }
+
+        for (int i = posicao; i < espacosUtilizados - 1; i++) {
+            this.array[i] = this.array[i + 1];
+        }
+        this.espacosUtilizados--;
     }
 
     private void aumentaCapacidade() {
